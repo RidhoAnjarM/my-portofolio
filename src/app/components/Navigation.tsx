@@ -83,27 +83,27 @@ const Navigation = () => {
             Home
           </a>
           <a
-            href="/about"
+            href="#"
             className={`text-white text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '/about' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
+              pathname === '#' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
             }`}
             onClick={() => setIsOpen(false)}
           >
             About
           </a>
           <a
-            href="/project"
+            href="#"
             className={`text-white text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '/project' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
+              pathname === '#' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
             }`}
             onClick={() => setIsOpen(false)}
           >
             Project
           </a>
           <a
-            href="/contact"
+            href="#"
             className={`text-white text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '/contact' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
+              pathname === '#' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
             }`}
             onClick={() => setIsOpen(false)}
           >

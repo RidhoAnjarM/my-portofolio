@@ -8,7 +8,7 @@ export default function Home() {
 
       <div className="">
         {/* Nama */}
-        <div className="pt-[177px] ml-[45px] md:pt-[200px] md:ml-[77px] lg:float-right lg:mr-[300px] lg:pt-[300px]">
+        <div className="pt-[150px] ml-[45px] md:pt-[200px] md:ml-[77px] lg:float-right lg:mr-[300px] lg:pt-[300px]">
           <p className="text-[14px] text-putih font-poppins md:text-[17px] lg:text-[24px] animate-slide-in">Hi! My name is</p>
           <h1 className="text-[24px] text-putih font-russo md:text-[30px] lg:text-[40px] animate-slide-in">
             Ridho Anjar Maulana
