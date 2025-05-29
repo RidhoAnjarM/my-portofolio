@@ -1,103 +1,42 @@
-import Image from "next/image";
+import Navigation from "./components/Navigation";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-hitam min-h-screen text-white">
+      {/* Navigation */}
+      <Navigation />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="">
+        {/* Nama */}
+        <div className="pt-[177px] ml-[45px] md:pt-[200px] md:ml-[77px] lg:float-right lg:mr-[300px] lg:pt-[300px]">
+          <p className="text-[14px] text-putih font-poppins md:text-[17px] lg:text-[24px] animate-slide-in">Hi! My name is</p>
+          <h1 className="text-[24px] text-putih font-russo md:text-[30px] lg:text-[40px] animate-slide-in">
+            Ridho Anjar Maulana
+          </h1>
+          <p className="text-[13px] text-putih font-russo md:text-[16px] lg:text-[20px] animate-slide-in">Frontend developer</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* foto */}
+        <div className="w-[230px] h-[240px] mx-auto mt-[75px] md:w-[260px] md:h-[270px] md:mt-[85px] relative flex items-center justify-center lg:float-start lg:mt-[300px] lg:ml-[250px]">
+          <div className="absolute z-10 w-[190px] h-[200px] bg-gray-500 rounded-[10px] md:w-[220px] md:h-[230px] lg:w-[340px] lg:h-[350px] animate-slide-scale"></div>
+          <div className="absolute z-0 w-[190px] h-[200px] bg-abu -rotate-12 rounded-[10px] md:w-[220px] md:h-[230px] lg:w-[340px] lg:h-[350px] animate-spin-once"></div>
+        </div>
+
+        {/* Tombol */}
+        <div className="w-full flex justify-center lg:justify-end">
+          <button className="w-[135px] h-[40px] border-putih border-2 border-e-0 rounded-s-[15px] mt-[75px] lg:-mt-[70px] lg:w-[170px] lg:h-[49px] lg:mr-[542px] animate-slide-in relative overflow-hidden group">
+            <span className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0"></span>
+            <div className="flex items-center justify-center relative z-10">
+              <p className="text-[13px] text-putih font-russo md:text-[15px] lg:text-[17px] group-hover:text-hitam transition-colors duration-300">
+                View Project
+              </p>
+              <span className="ml-2 text-[13px] md:text-[15px] lg:text-[17px] font-russo text-putih group-hover:text-hitam opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                &gt;
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
