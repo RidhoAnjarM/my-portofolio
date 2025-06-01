@@ -19,9 +19,9 @@ const Navigation = () => {
           Home
         </a>
         <a
-          href="/about"
+          href="/About"
           className={`text-white text-[20px] font-russo transition-colors duration-300 ${
-            pathname === '/about' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
+            pathname === '/About' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
           }`}
         >
           About
@@ -48,7 +48,7 @@ const Navigation = () => {
       <div className="md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="fixed top-[55px] right-[45px] w-7 h-7 text-white focus:outline-none z-50"
+          className="fixed top-[45px] right-[45px] w-7 h-7 text-white focus:outline-none z-50"
         >
           <svg
             className={`w-[35px] h-[35px] transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
@@ -68,7 +68,7 @@ const Navigation = () => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden fixed top-[90px] right-[45px] w-[150px] bg-black/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden fixed top-[80px] right-[45px] w-[150px] bg-black/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? 'max-h-[400px] opacity-90' : 'max-h-0 opacity-0'
         }`}
       >
@@ -83,9 +83,9 @@ const Navigation = () => {
             Home
           </a>
           <a
-            href="#"
+            href="/About"
             className={`text-white text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '#' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
+              pathname === '/About' ? 'underline text-shadow-glow' : 'hover:text-gray-300'
             }`}
             onClick={() => setIsOpen(false)}
           >
