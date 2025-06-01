@@ -8,15 +8,13 @@ export default function About() {
       <Navigation />
 
       <div className="w-full">
-        <div className="pt-[150px] mx-auto max-w-[312px] md:max-w-[480px]  lg:float-right lg:mt-[150px] lg:mr-[200px]">
+        <div className="pt-[150px] mx-auto max-w-[312px] md:max-w-[480px]  lg:float-right lg:mt-[150px] lg:mr-[200px] animate-slide-in">
           <h2 className='text-[20px] font-russo md:hidden lg:hidden'>About Me</h2>
-          <p className=' text-[13px] font-poppins text-justify mt-[10px] md:text-[15px] lg:text-[17px]'>Saya Ridho, lulusan SMK jurusan Rekayasa Perangkat Lunak (RPL) yang dipenuhi semangat untuk pengembangan website.
-            Saya menikmati proses mengeksplorasi teknologi baru, merancang antarmuka yang bersih dan fungsional, serta menuangkan ide-ide kreatif ke dalam kode.
-            Setiap proyek adalah kanvas bagi saya untuk belajar, berinovasi, dan menghidupkan pengalaman digital yang menginspirasi dan penuh karakter.
+          <p className=' text-[13px] font-poppins text-justify mt-[10px] md:text-[15px] lg:text-[17px]'>I am Ridho, a graduate of SMK majoring in Software Engineering (RPL) who is filled with passion for website development. I enjoy the process of exploring new technologies, designing clean and functional interfaces, and pouring creative ideas into code. Every project is a canvas for me to learn, innovate, and bring to life inspiring and characterful digital experiences.
           </p>
         </div>
 
-        <div className="mt-[50px] max-w-[312px] md:max-w-[480px] lg:max-w-[700px] mx-auto lg:float-left lg:mt-[270px] lg:ml-[210px]">
+        <div className="mt-[50px] max-w-[312px] md:max-w-[480px] lg:max-w-[700px] mx-auto lg:float-left lg:mt-[270px] lg:ml-[210px] animate-slide-in">
           <h2 className='text-[20px] font-russo'>My Skill</h2>
           <div className="grid grid-cols-6 gap-[15px] mt-[20px] max-w-[255px] md:max-w-[290px] lg:max-w-[340px] lg:gap-[35px] md:mt-[30px] lg:mt-[30px] lg:grid-cols-4 mx-auto">
 
