@@ -16,16 +16,16 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-[170px] py-8">
       {/* Glass Backdrop */}
       <div className="absolute inset-0 backdrop-blur-sm pointer-events-none" />
 
       <div className="relative container mx-auto flex justify-between items-center">
 
         {/* Logo */}
-        <div className="text-2xl font-bold tracking-wider">
+        <div className="text-2xl font-bold tracking-wider font-russo">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-            R
+            My Portofolio
           </span>
         </div>
 
