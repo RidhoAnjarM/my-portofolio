@@ -1,116 +1,106 @@
 'use client';
+
 import React, { useState } from 'react';
-import { usePathname } from 'next/navigation'; // For detecting current page
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Get current path
+  const pathname = usePathname();
+
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/About' },
+    { name: 'Project', href: '/Project' },
+    { name: 'Contact', href: '/Contact' },
+  ];
 
   return (
-    <nav className="bg-transparent p-4 fixed w-full top-0 z-50">
-      {/* Desktop Menu */}
-      <div className="hidden md:flex justify-end items-center space-x-[30px] pr-[100px] pt-[70px]">
-        <a
-          href="/"
-          className={`text-[#ddad81] text-[20px] font-russo transition-colors duration-300 ${
-            pathname === '/' ? 'underline text-shadow-glow text-[#634647]' : 'hover:text-[#634647]'
-          }`}
-        >
-          Home
-        </a>
-        <a
-          href="/About"
-          className={`text-[#ddad81] text-[20px] font-russo transition-colors duration-300 ${
-            pathname === '/About' ? 'underline text-shadow-glow text-[#634647]' : 'hover:text-[#634647]'
-          }`}
-        >
-          About
-        </a>
-        <a
-          href="/Project"
-          className={`text-[#ddad81] text-[20px] font-russo transition-colors duration-300 ${
-            pathname === '/Project' ? 'underline text-shadow-glow text-[#634647]' : 'hover:text-[#634647]'
-          }`}
-        >
-          Project
-        </a>
-        <a
-          href="#"
-          className={`text-[#ddad81] text-[20px] font-russo transition-colors duration-300 ${
-            pathname === '#' ? 'underline text-shadow-glow text-[#634647]' : 'hover:text-[#634647]'
-          }`}
-        >
-          Contact
-        </a>
-      </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-8">
+      {/* Glass Backdrop */}
+      <div className="absolute inset-0 backdrop-blur-sm pointer-events-none" />
 
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="fixed top-[45px] right-[45px] w-7 h-7 text-[#ddad81] hover:text-[#634647] focus:outline-none z-50 transition-colors duration-300"
-        >
-          <svg
-            className={`w-[35px] h-[35px] transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-            )}
-          </svg>
-        </button>
-      </div>
+      <div className="relative container mx-auto flex justify-between items-center">
 
-      {/* Mobile Menu Dropdown */}
-      <div
-        className={`md:hidden fixed top-[80px] right-[45px] w-[150px] bg-[#ddad81]/90 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[400px] opacity-90' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="flex flex-col items-center p-4 space-y-4">
-          <a
-            href="/"
-            className={`text-[#634647] text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '/' ? 'underline text-shadow-glow bg-[#634647]/30 rounded-lg' : 'hover:bg-[#634647]/30'
-            }`}
-            onClick={() => setIsOpen(false)}
+        {/* Logo */}
+        <div className="text-2xl font-bold tracking-wider">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            R
+          </span>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-12">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`relative text-lg font-medium transition-all duration-500 group
+                ${pathname === item.href ? 'text-cyan-400' : 'text-gray-400 hover:text-cyan-300'}`}
+            >
+              {item.name}
+              {pathname === item.href && (
+                <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full shadow-lg shadow-cyan-500/50" />
+              )}
+              <span className="absolute -inset-2 -z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="absolute inset-x-0 bottom-0 h-8 bg-cyan-500/20 blur-xl" />
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        {/* TOMBOL MOBILE — PAKAI YANG LAMA (SVG CLASSIC) */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="fixed top-[30px] right-[45px] w-10 h-10 text-cyan-400 hover:text-cyan-300 focus:outline-none z-50 transition-all duration-300"
           >
-            Home
-          </a>
-          <a
-            href="/About"
-            className={`text-[#634647] text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '/About' ? 'underline text-shadow-glow bg-[#634647]/30 rounded-lg' : 'hover:bg-[#634647]/30'
-            }`}
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </a>
-          <a
-            href="/Project"
-            className={`text-[#634647] text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '/Project' ? 'underline text-shadow-glow bg-[#634647]/30 rounded-lg' : 'hover:bg-[#634647]/30'
-            }`}
-            onClick={() => setIsOpen(false)}
-          >
-            Project
-          </a>
-          <a
-            href="#"
-            className={`text-[#634647] text-lg font-russo w-full text-center py-2 transition-colors duration-300 ${
-              pathname === '#' ? 'underline text-shadow-glow bg-[#634647]/30 rounded-lg' : 'hover:bg-[#634647]/30'
-            }`}
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </a>
+            <svg
+              className={`w-full h-full transition-transform duration-500 ${isOpen ? 'rotate-90' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Dropdown */}
+      <div className={`md:hidden fixed top-[100px] right-[45px] w-[180px] bg-black/70 backdrop-blur-2xl border border-cyan-500/40 rounded-2xl shadow-2xl shadow-cyan-500/30 overflow-hidden transition-all duration-500 ease-out
+        ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+      >
+        <div className="flex flex-col p-4 space-y-2">
+          {navItems.map((item, index) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className={`text-lg font-medium text-center py-3 rounded-lg transition-all duration-300
+                ${pathname === item.href
+                  ? 'text-cyan-400 bg-cyan-500/20 underline decoration-2 underline-offset-4'
+                  : 'text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10'
+                }`}
+              style={{ animation: isOpen ? `slideDown 0.4s ease-out ${index * 0.1}s both` : '' }}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Animasi */}
+      <style jsx>{`
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </nav>
   );
 };

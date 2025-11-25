@@ -15,6 +15,9 @@ module.exports = {
         hitam: "#0D0D0D",
         putih: "#EAEAEA",
         abu: "#D9D9D9",
+        biru: "#03045E",
+        cream: "#FBF8CC",
+        coklat: "#474306",
       },
       textShadow: {
         glow: '0 0 8px rgba(255, 255, 255, 0.5)',

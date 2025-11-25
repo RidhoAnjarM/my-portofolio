@@ -1,42 +1,91 @@
+'use client';
+
 import Navigation from "./components/Navigation";
+import HeroOrbit from "./components/HeroOrbit";
+import { SpaceButton } from "./components/SpaceButton";
+import TypewriterText from "./components/TypewriterText";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="bg-hitam min-h-screen text-white">
-      {/* Navigation */}
+    <div className="min-h-screen bg-[#000814] overflow-hidden relative">
+
+      {/* PARTIKEL DEBU KOSMIK */}
+      {mounted && (
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(100)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-white/30 rounded-full animate-drift"
+              style={{
+                width: Math.random() * 4 + 1 + 'px',
+                height: Math.random() * 4 + 1 + 'px',
+                top: Math.random() * 100 + '%',
+                left: Math.random() * 100 + '%',
+                animationDelay: Math.random() * 25 + 's',
+                animationDuration: Math.random() * 50 + 40 + 's',
+              }}
+            />
+          ))}
+        </div>
+      )}
+
       <Navigation />
 
-      <div>
-        {/* Nama */}
-        <div className="pt-[150px] ml-[45px] md:pt-[200px] md:ml-[77px] lg:float-right lg:mr-[300px] lg:pt-[300px]">
-          <p className="text-[14px] text-putih font-poppins md:text-[17px] lg:text-[24px] animate-slide-in">Hi! My name is</p>
-          <h1 className="text-[24px] text-[#ddad81] font-russo md:text-[30px] lg:text-[40px] animate-slide-in hover:text-[#634647] transition-colors duration-300">
-            Ridho Anjar Maulana
-          </h1>
-          <p className="text-[13px] text-putih font-russo md:text-[16px] lg:text-[20px] animate-slide-in">Frontend developer</p>
-        </div>
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-screen pt-20 pb-12">
 
-        {/* Foto */}
-        <div className="w-[230px] h-[240px] mx-auto mt-[75px] md:w-[260px] md:h-[270px] md:mt-[85px] relative flex items-center justify-center lg:float-start lg:mt-[300px] lg:ml-[250px]">
-          <div className="absolute z-10 w-[190px] h-[200px] bg-[#634647] rounded-[10px] md:w-[220px] md:h-[230px] lg:w-[340px] lg:h-[350px] animate-slide-scale overflow-hidden border-2 border-[#634647]">
-            <img src="../../img/7543fdb969708432716ec83b223b34fc.jpg" alt="Cover" className="absolute inset-0 w-full h-full object-cover" />
-          </div>
-          <div className="absolute z-0 w-[190px] h-[200px] bg-abu -rotate-12 rounded-[10px] md:w-[220px] md:h-[230px] lg:w-[340px] lg:h-[350px] animate-spin-once"></div>
-        </div>
+          {/* KIRI: Teks */}
+          <div className="space-y-6 lg:space-y-8 text-center lg:text-left order-2 lg:order-1">
+            <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 leading-tight">
+              Hi, I'm Ridho,
+            </p>
 
-        {/* Tombol */}
-        <div className="w-full flex justify-center lg:justify-end">
-          <button className="w-[135px] h-[40px] border-[#ddad81] border-2 border-e-0 rounded-s-[15px] mt-[75px] lg:-mt-[70px] lg:w-[170px] lg:h-[49px] lg:mr-[542px] animate-slide-in relative overflow-hidden group">
-            <span className="absolute inset-0 bg-[#ddad81] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0"></span>
-            <div className="flex items-center justify-center relative z-10">
-              <p className="text-[10px] text-putih font-russo md:text-[12px] lg:text-[15px] group-hover:text-[#634647] transition-colors duration-300">
-                Explore My Work
-              </p>
-              <span className="ml-2 text-[10px] md:text-[12px] lg:text-[17px] font-russo text-putih group-hover:text-[#634647] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <TypewriterText
+              texts={[
+                "Frontend Developer",
+                "Next.js & React Lover",
+                "Clean Code Addict"
+              ]}
+              className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold 
+                         bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600
+                         drop-shadow-2xl tracking-wider"
+              typingSpeed={120}
+              deletingSpeed={60}
+              pauseBetween={1800}
+            />
 
-              </span>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+              I build fast-loading, responsive web apps with clean design and smooth interactions —
+              turning ideas into experiences that feel intuitive and delightful on every device.
+            </p>
+
+            <div className="flex flex-col sm:flex-row md:flex-row gap-6 justify-center lg:justify-start mt-8 w-full">
+              <div className="flex flex-col sm:flex-row md:flex-row gap-6 w-full justify-center lg:justify-start">
+                {/* Button pertama */}
+                <div className="w-full sm:w-auto md:w-auto flex justify-center">
+                  <SpaceButton text="SEE MY WORK" href="/Project" />
+                </div>
+
+                {/* Button kedua */}
+                <div className="w-full sm:w-auto md:w-auto flex justify-center">
+                  <SpaceButton text="CONTACT ME" href="/Contact" />
+                </div>
+
+              </div>
             </div>
-          </button>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <HeroOrbit />
+          </div>
+
         </div>
       </div>
     </div>

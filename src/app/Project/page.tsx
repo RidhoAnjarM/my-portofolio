@@ -2,8 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Navigation from '../components/Navigation'
 
-// Define the Project type
-interface Project {
+type Project = {
   id: number
   title: string
   subtitle: string
